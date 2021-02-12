@@ -9,7 +9,7 @@ class UnitTests(unittest.TestCase):
         input = "tests/data/git_log_analysis.csv"
 
         # Act
-        results = read_analytics(input)
+        results = read_git_log_csv(input)
         print(results.columns)
         print(results)
 
@@ -20,11 +20,32 @@ class UnitTests(unittest.TestCase):
         self,
     ):
         # Arrange
+        input = "tests/data/sample_source_files"
 
         # Act
+        results = calculate_file_complexity(input)
 
         # Assert
-        pass
+        self.assertEqual(
+            results,
+            {
+                "tests/data/sample_source_files/test_1.py": 22,
+                "tests/data/sample_source_files/test_2.py": 56,
+            },
+        )
+
+    def test_calculate_file_commits__given_simple_test_data__then_correct_data_returned(
+        self,
+    ):
+        # Arrange
+        input = "tests/data/git_log_analysis.csv"
+        df = read_git_log_csv(input)
+
+        # Act
+        results = calculate_file_commits(df)
+
+        # Assert
+        self.assertEqual(results, "")
 
 
 if __name__ == "__main__":
