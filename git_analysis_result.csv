@@ -1,0 +1,13 @@
+file,commits,complexity,score
+".gitignore",2,0,0
+"README.md",1,0,0
+"report_template_json.txt",1,0,0
+"requirements.txt",1,0,0
+"run_tests.sh",1,0,0
+"test_and_format.py",1,0,0
+"tests/analyze_git_csv.py",1,0,0
+"tests/data/forem_git_log.csv",1,0,0
+"tests/data/sample_source_files/test_1.py",3,22,66
+"tests/data/sample_source_files/test_2.py",3,67,201
+"tests/data/short_sample.csv",1,0,0
+"tests/test_unit.py",1,0,0
