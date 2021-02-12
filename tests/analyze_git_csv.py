@@ -19,8 +19,9 @@ def calculate_file_complexity(source_path):
 
 
 def calculate_file_commits(df):
+    results = {}
     file_commits = df.groupby("file")["commit_hash"].count()
-    # file_commits = df.groupby(["file"]).max()
-    print("\n\n___")
-    print(file_commits)
-    return file_commits
+    for file in file_commits.index:
+        commits = file_commits.loc[file]
+        results[file] = commits
+    return results

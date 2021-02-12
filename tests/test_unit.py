@@ -30,7 +30,7 @@ class UnitTests(unittest.TestCase):
             results,
             {
                 "tests/data/sample_source_files/test_1.py": 22,
-                "tests/data/sample_source_files/test_2.py": 56,
+                "tests/data/sample_source_files/test_2.py": 67,
             },
         )
 
@@ -43,9 +43,26 @@ class UnitTests(unittest.TestCase):
 
         # Act
         results = calculate_file_commits(df)
+        print(results)
 
         # Assert
-        self.assertEqual(results, "")
+        self.assertEqual(
+            results,
+            {
+                ".gitignore": 2,
+                "README.md": 1,
+                "report_template_json.txt": 1,
+                "requirements.txt": 1,
+                "run_tests.sh": 1,
+                "test_and_format.py": 1,
+                "tests/analyze_git_csv.py": 1,
+                "tests/data/forem_git_log.csv": 1,
+                "tests/data/sample_source_files/test_1.py": 3,
+                "tests/data/sample_source_files/test_2.py": 3,
+                "tests/data/short_sample.csv": 1,
+                "tests/test_unit.py": 1,
+            },
+        )
 
 
 if __name__ == "__main__":
